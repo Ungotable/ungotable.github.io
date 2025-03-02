@@ -119,7 +119,7 @@ function showResult() {
 function goToSection(targetSection) {
     sessionStorage.setItem("fromMBTI", "true");
     sessionStorage.setItem("scrollTarget", targetSection);
-    window.location.href = "../Main/PTS MULOK.html";
+    window.location.href = "./index.html";
 }
 
 function retryQuiz() {
