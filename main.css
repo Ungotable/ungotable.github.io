@@ -148,7 +148,7 @@ video {
     margin-top: 150px;
     opacity: 0;
     transform: translateY(10px);
-    transition: opacity 0.3s ease 0.6s, transform 0.3s ease 0.6s;
+    transition: opacity 0.2s ease 0.4s, transform 0.2s ease 0.4s;
     text-align: left;
     border-radius: 12px;
     scroll-margin-top: 100px;
