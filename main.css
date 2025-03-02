@@ -185,7 +185,7 @@ video {
     margin-bottom: 15px;
     opacity: 0;
     transform: translateY(10px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition: opacity 0.2s ease, transform 0.4s ease;
 }
 
 .explanation-text p.in-view {
@@ -211,7 +211,7 @@ video {
     margin-bottom: 15px;
     opacity: 0;
     transform: translateY(10px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition: opacity 0.2s ease, transform 0.4s ease;
 }
 
 .explanation-text h2.in-view {
