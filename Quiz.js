@@ -143,7 +143,7 @@ function scrollToHandling() {
 
     sessionStorage.setItem("fromQuiz", "true");
     sessionStorage.setItem("scrollTarget", targetSection);
-    window.location.href = "../Main/PTS MULOK.html";
+    window.location.href = "./index.html";
 }
 
 document.addEventListener('DOMContentLoaded', () => {
