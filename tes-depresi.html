@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tes Depresi</title>
+    <link rel="stylesheet" href="Quiz.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <a href="../Main/PTS MULOK.html">
+                <img src="logo.jpg" alt="Logo Mental OK" class="logo">
+            </a>
+            <div class="title">
+                <a href="../Main/PTS MULOK.html" style="color: #6a5acd; text-decoration: none;">Mental OK</a>
+            </div>
+        </div>
+        <div class="nav">
+            <a href="../Main/PTS MULOK.html">Home</a>
+            <a href="../Main/PTS MULOK.html">Tes</a>
+            <a href="../Main/PTS MULOK.html" onclick="sessionStorage.setItem('scrollTarget', 'scroll-3')">Tentang</a>
+            <a href="#">Kontak</a>
+        </div>
+    </div>
+    
+    <div class="container" id="quiz-container">
+        <h2 style="color: #6a5acd; font-weight: bold;">Tes Depresi</h2>
+        <div id="quiz">
+            <span class="question-number" id="question-number">Soal 1/10</span>
+            <p class="question" id="question-text">Pertanyaan akan muncul di sini</p>
+            <div class="options" id="options-container"></div>
+            <button class="submit-button" id="submit-button" onclick="submitAnswer()">Submit</button>
+        </div>        
+    </div>
+    
+    <div class="footer">
+        <p>&copy; 2025 Mental OK | Sekolah Kristen Kanaan Jakarta | Jl. Kran Raya No.7, Kemayoran, Jakarta Pusat</p>
+    </div>
+    
+    <script src="Quiz.js"></script>
+    <img src="wave.svg" alt="Wave Background" class="wave">
+    <div class="decorative-circle circle-top-left"></div>
+    <div class="decorative-circle circle-bottom-right"></div>
+    
+</body>
+</html>

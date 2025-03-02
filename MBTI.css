@@ -1,0 +1,272 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(120deg, #e0f7fa, #b2ebf2);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    padding-top: 80px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 15px 40px;
+    border-bottom: 2px solid #00796b;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    background: lightgray;
+    border-radius: 20%;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00796b;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #00796b;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.nav a:hover {
+    background: #b2dfdb;
+}
+
+.container {
+    width: 60%;
+    margin: -200px auto 50px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    position: relative;
+    margin-left: auto;
+    margin-right: 10%;
+    
+}
+
+.question-number {
+    font-size: 20px;
+    font-weight: bold;
+    color: #00796b;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.question {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #004d40;
+}
+
+.options button {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    background-color: #00796b;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.options button.selected {
+    background-color: #004d40;
+}
+
+.options button:hover {
+    background-color: #00897b;
+}
+
+.submit-button {
+    margin-top: 20px;
+    padding: 16px 30px;
+    font-size: 18px;
+    color: white;
+    background: #00796b;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.submit-button:hover {
+    background: #004d40;
+}
+
+.footer {
+    background-color: #00796b;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    z-index: 1000;
+}
+
+.explanation-box {
+    margin-top: 30px;
+    padding: 20px;
+    background: #e0f2f1;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 1;  
+    transform: translateY(0);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.explanation-box h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00796b;
+    margin-bottom: 10px;
+}
+
+.explanation-box p {
+    font-size: 16px;
+    color: #333;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.retry-button {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.mbti-type {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #6a5acd;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.explanation-box {
+    background: #f4f4f4;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.retry-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.retry-button:hover {
+    background-color: #6a5acd;
+}
+
+.goto-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.goto-button:hover {
+    background-color: #45a049;
+}
+
+.result-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.result-text {
+    flex: 0.6; 
+    padding: 20px;
+    margin-left: 30px; 
+}
+
+.result-image {
+    flex: 1.4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.mbti-image {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
