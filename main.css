@@ -457,6 +457,7 @@ video {
         display: block;
         text-align: center;
         margin: 10px auto;
+        white-space: nowrap;
     }
 
     .explanation-text {
