@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const checkIfInView = () => {
             const rect = container.getBoundingClientRect();
             const buffer = 200;
-
             const isVisible = rect.top < window.innerHeight - buffer && rect.bottom > buffer;
 
             if (isVisible) {
@@ -33,11 +32,22 @@ document.addEventListener('DOMContentLoaded', () => {
         video.muted = false;
         video.loop = true;
         video.setAttribute('playsinline', '');
-        video.setAttribute('autoplay', '');
-        video.setAttribute('preload', 'auto');
-
-        video.addEventListener('mouseenter', () => video.play());
-        video.addEventListener('mouseleave', () => video.pause());
+        video.removeAttribute('autoplay'); // Mencegah autoplay
+        video.pause(); // Pastikan video tidak jalan dari awal
+        
+        if (window.matchMedia("(hover: hover)").matches) {
+            // Desktop (harus hover)
+            video.addEventListener('mouseenter', () => video.play());
+            video.addEventListener('mouseleave', () => video.pause());
+        } else {
+            video.addEventListener('click', () => {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        }
     });
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -52,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
 
 window.onload = function () {
     let targetSection = null;
