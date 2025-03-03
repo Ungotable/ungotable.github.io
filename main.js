@@ -1,7 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     let currentPlayingVideo = null;
 
-    document.querySelectorAll('video').forEach(video => {
+    const videos = document.querySelectorAll('video');
+    const frame = document.querySelector('.frame');
+
+    videos.forEach(video => {
         video.muted = false;
         video.loop = true;
         video.setAttribute('playsinline', '');
@@ -9,28 +12,44 @@ document.addEventListener('DOMContentLoaded', () => {
         video.setAttribute('preload', 'metadata');
         video.pause();
         video.currentTime = 0;
-
-        if (window.matchMedia("(hover: hover)").matches) {
-            video.addEventListener('mouseenter', () => video.play());
-            video.addEventListener('mouseleave', () => video.pause());
-        } else {
-            video.addEventListener('click', () => {
-                if (currentPlayingVideo && currentPlayingVideo !== video) {
-                    currentPlayingVideo.pause();
-                    currentPlayingVideo.currentTime = 0;
-                }
-
-                if (video.paused) {
-                    video.play();
-                    currentPlayingVideo = video;
-                } else {
-                    video.pause();
-                    video.currentTime = 0;
-                    currentPlayingVideo = null;
-                }
-            });
-        }
     });
+
+    if (!window.matchMedia("(hover: hover)").matches) {
+        let isScrolling;
+        
+        frame.addEventListener('scroll', () => {
+            clearTimeout(isScrolling);
+            isScrolling = setTimeout(() => {
+                let closestVideo = null;
+                let minDistance = Infinity;
+
+                videos.forEach(video => {
+                    const rect = video.getBoundingClientRect();
+                    const distance = Math.abs(rect.left + rect.width / 2 - window.innerWidth / 2);
+                    
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        closestVideo = video;
+                    }
+                });
+
+                if (closestVideo) {
+                    frame.scrollTo({
+                        left: closestVideo.parentElement.offsetLeft - frame.offsetLeft,
+                        behavior: "smooth"
+                    });
+
+                    if (currentPlayingVideo && currentPlayingVideo !== closestVideo) {
+                        currentPlayingVideo.pause();
+                        currentPlayingVideo.currentTime = 0;
+                    }
+
+                    closestVideo.play();
+                    currentPlayingVideo = closestVideo;
+                }
+            }, 100);
+        });
+    }
 });
 
 window.addEventListener("pageshow", () => {
