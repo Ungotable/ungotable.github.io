@@ -380,6 +380,9 @@ video {
         display: block;
         text-align: center;
         margin: 15px auto;
+        position: relative;
+        margin-bottom: 15px;
+        z-index: 1;
         white-space: nowrap;
     }
 
