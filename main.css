@@ -376,10 +376,10 @@ video {
     .test-button {
         font-size: 22px !important;
         padding: 20px 40px !important;
-        max-width: 100% !important;
+        max-width: 90% !important;
         display: block;
         text-align: center;
-        margin: 10px auto;
+        margin: 15px auto;
         white-space: nowrap;
     }
 
@@ -453,10 +453,10 @@ video {
     .test-button {
         font-size: 26px !important; 
         padding: 24px 48px !important;
-        max-width: 100% !important;
+        max-width: 90% !important;
         display: block;
         text-align: center;
-        margin: 10px auto;
+        margin: 15px auto;
         white-space: nowrap;
     }
 
