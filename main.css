@@ -148,7 +148,7 @@ video {
     margin-top: 150px;
     opacity: 0;
     transform: translateY(10px);
-    transition: opacity 0.2s ease 0.4s, transform 0.2s ease 0.4s;
+    transition: opacity 0.3s ease 0.5s, transform 0.3s ease 0.5s;
     text-align: left;
     border-radius: 12px;
     scroll-margin-top: 100px;
@@ -185,7 +185,7 @@ video {
     margin-bottom: 15px;
     opacity: 0;
     transform: translateY(10px);
-    transition: opacity 0.2s ease, transform 0.4s ease;
+    transition: opacity 0.3s ease, transform 0.5s ease;
 }
 
 .explanation-text p.in-view {
@@ -211,7 +211,7 @@ video {
     margin-bottom: 15px;
     opacity: 0;
     transform: translateY(10px);
-    transition: opacity 0.2s ease, transform 0.4s ease;
+    transition: opacity 0.3s ease, transform 0.5s ease;
 }
 
 .explanation-text h2.in-view {
