@@ -374,9 +374,9 @@ video {
     }
 
     .test-button {
-        font-size: 19px;
-        padding: 17px 34px;
-        max-width: 85%;
+        font-size: 22px;
+        padding: 20px 40px;
+        max-width: 90%; 
         white-space: nowrap;
     }
 
@@ -448,9 +448,9 @@ video {
     }
 
     .test-button {
-        font-size: 18px;
-        padding: 16px 32px;
-        max-width: 80%;
+        font-size: 24px;
+        padding: 22px 44px; 
+        max-width: 95%;
         white-space: nowrap;
     }
 
