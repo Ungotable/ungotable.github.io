@@ -23,12 +23,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Ensures all videos are paused when navigating back
 window.addEventListener("pageshow", () => {
     document.querySelectorAll('video').forEach(video => {
         video.pause();
         video.currentTime = 0;
     });
 });
+
+// Forces videos to pause when clicking links to index.html
+document.querySelectorAll('a[href="index.html"]').forEach(link => {
+    link.addEventListener('click', () => {
+        sessionStorage.setItem("pauseVideos", "true");
+    });
+});
+
+if (sessionStorage.getItem("pauseVideos")) {
+    document.querySelectorAll('video').forEach(video => {
+        video.pause();
+        video.currentTime = 0;
+    });
+    sessionStorage.removeItem("pauseVideos");
+}
 
 window.onload = function () {
     let targetSection = null;
