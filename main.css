@@ -374,9 +374,12 @@ video {
     }
 
     .test-button {
-        font-size: 22px;
-        padding: 20px 40px;
-        max-width: 90%; 
+        font-size: 22px !important;
+        padding: 20px 40px !important;
+        max-width: 100% !important;
+        display: block;
+        text-align: center;
+        margin: 10px auto;
         white-space: nowrap;
     }
 
@@ -448,10 +451,12 @@ video {
     }
 
     .test-button {
-        font-size: 24px;
-        padding: 22px 44px; 
-        max-width: 95%;
-        white-space: nowrap;
+        font-size: 26px !important; 
+        padding: 24px 48px !important;
+        max-width: 100% !important;
+        display: block;
+        text-align: center;
+        margin: 10px auto;
     }
 
     .explanation-text {
