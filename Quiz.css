@@ -258,9 +258,20 @@ body {
 }
 
 @media (max-width: 768px) {
+    body {
+        overflow-y: auto;
+        padding-bottom: 80px; 
+    }
+
     .container {
+        margin-top: 100px;
         width: 90%;
         padding: 30px;
+    }
+    .footer {
+        height: 60px; 
+        padding: 15px; 
+        font-size: 14px; 
     }
     .header {
         flex-direction: column;
@@ -275,6 +286,11 @@ body {
     .container {
         width: 95%;
         padding: 20px;
+    }
+    .footer {
+        height: 50px; 
+        padding: 10px;
+        font-size: 12px;
     }
     .question {
         font-size: 18px;

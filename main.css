@@ -275,7 +275,9 @@ video {
     }
 
     .nav {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 10px;
     }
 

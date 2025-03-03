@@ -101,6 +101,7 @@ function showResult() {
         <h2>Hasil Tes MBTI Anda</h2>
         <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
             <div>
+            <img src="${imageSrc}" alt="MBTI Type ${mbtiType}" style="width: 300px; height: auto; border-radius: 10px;">
                 <div class="mbti-type">${mbtiType}</div>
                 <div class="explanation-box">
                     <h2>${mbtiType}</h2>
@@ -111,7 +112,6 @@ function showResult() {
                     <button class="goto-button" onclick="goToSection('scroll-1')">Apa itu MBTI?</button>
                 </div>
             </div>
-            <img src="${imageSrc}" alt="MBTI Type ${mbtiType}" style="width: 300px; height: auto; border-radius: 10px;">
         </div>
     `;
 }
