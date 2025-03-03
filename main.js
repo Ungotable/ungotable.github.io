@@ -4,7 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
         video.loop = true;
         video.setAttribute('playsinline', '');
         video.removeAttribute('autoplay');
+        video.setAttribute('preload', 'none');
         video.pause();
+        video.currentTime = 0;
 
         if (window.matchMedia("(hover: hover)").matches) {
             video.addEventListener('mouseenter', () => video.play());
@@ -19,11 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+});
 
-    window.addEventListener("pageshow", () => {
-        document.querySelectorAll('video').forEach(video => {
-            video.pause();
-        });
+window.addEventListener("pageshow", () => {
+    document.querySelectorAll('video').forEach(video => {
+        video.pause();
+        video.currentTime = 0;
     });
 });
 
