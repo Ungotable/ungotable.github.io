@@ -127,6 +127,7 @@ video {
     border-radius: 8px;
     margin: 10px;
     transition: background-color 0.3s;
+    white-space: nowrap;
 }
 
 .test-button:hover {
@@ -308,6 +309,7 @@ video {
     .test-button {
         font-size: 12px;
         padding: 8px 18px;
+        white-space: nowrap;
     }
 
     .explanation-text {
@@ -374,6 +376,7 @@ video {
     .test-button {
         font-size: 8px;
         padding: 4px 10px;
+        white-space: nowrap;
     }
 
     .explanation-text {
