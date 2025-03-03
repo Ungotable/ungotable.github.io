@@ -1,42 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.explanation-container').forEach(container => {
-        const explanationText = container.querySelector('.explanation-text');
-
-        explanationText.querySelectorAll('h2, p').forEach((paragraph, index) => {
-            paragraph.style.transitionDelay = `${1 + index * 0.3}s`;
-        });
-
-        const checkIfInView = () => {
-            const rect = container.getBoundingClientRect();
-            const buffer = 200;
-            const isVisible = rect.top < window.innerHeight - buffer && rect.bottom > buffer;
-
-            if (isVisible) {
-                container.classList.add('in-view');
-                explanationText.querySelectorAll('h2, p').forEach((paragraph, index) => {
-                    setTimeout(() => paragraph.classList.add('in-view'), (1 + index * 300));
-                });
-            } else {
-                container.classList.remove('in-view');
-                explanationText.querySelectorAll('h2, p').forEach(paragraph => {
-                    paragraph.classList.remove('in-view');
-                });
-            }
-        };
-
-        window.addEventListener('scroll', checkIfInView);
-        checkIfInView();
-    });
-
     document.querySelectorAll('video').forEach(video => {
         video.muted = false;
         video.loop = true;
         video.setAttribute('playsinline', '');
-        video.removeAttribute('autoplay'); // Mencegah autoplay
-        video.pause(); // Pastikan video tidak jalan dari awal
-        
+        video.removeAttribute('autoplay');
+        video.pause();
+
         if (window.matchMedia("(hover: hover)").matches) {
-            // Desktop (harus hover)
             video.addEventListener('mouseenter', () => video.play());
             video.addEventListener('mouseleave', () => video.pause());
         } else {
@@ -50,19 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (event) {
-            event.preventDefault();
-            const targetId = this.getAttribute("href").substring(1);
-            const targetElement = document.getElementById(targetId);
-
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: "smooth", block: "center" });
-            }
+    window.addEventListener("pageshow", () => {
+        document.querySelectorAll('video').forEach(video => {
+            video.pause();
         });
     });
 });
-
 
 window.onload = function () {
     let targetSection = null;
