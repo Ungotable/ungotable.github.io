@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+    let currentPlayingVideo = null;
+
     document.querySelectorAll('video').forEach(video => {
         video.muted = false;
         video.loop = true;
         video.setAttribute('playsinline', '');
         video.removeAttribute('autoplay');
-        video.setAttribute('preload', 'none');
+        video.setAttribute('preload', 'metadata');
         video.pause();
         video.currentTime = 0;
 
@@ -13,17 +15,24 @@ document.addEventListener('DOMContentLoaded', () => {
             video.addEventListener('mouseleave', () => video.pause());
         } else {
             video.addEventListener('click', () => {
+                if (currentPlayingVideo && currentPlayingVideo !== video) {
+                    currentPlayingVideo.pause();
+                    currentPlayingVideo.currentTime = 0;
+                }
+
                 if (video.paused) {
                     video.play();
+                    currentPlayingVideo = video;
                 } else {
                     video.pause();
+                    video.currentTime = 0;
+                    currentPlayingVideo = null;
                 }
             });
         }
     });
 });
 
-// Ensures all videos are paused when navigating back
 window.addEventListener("pageshow", () => {
     document.querySelectorAll('video').forEach(video => {
         video.pause();
@@ -31,7 +40,6 @@ window.addEventListener("pageshow", () => {
     });
 });
 
-// Forces videos to pause when clicking links to index.html
 document.querySelectorAll('a[href="index.html"]').forEach(link => {
     link.addEventListener('click', () => {
         sessionStorage.setItem("pauseVideos", "true");
