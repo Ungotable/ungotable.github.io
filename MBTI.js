@@ -58,16 +58,23 @@ function submitAnswer() {
     scores[selectedType]++;
     selectedType = "";
 
-    currentQuestion++;
+    let quizContainer = document.getElementById("quiz");
+    quizContainer.classList.add("fade-out"); // Tambahkan efek transisi
 
-    if (currentQuestion < questions.length) {
-        loadQuestion();
-    } else {
-        showResult();
-    }
+    setTimeout(() => {
+        currentQuestion++;
 
-    document.getElementById("submit-button").style.display = "none";
+        if (currentQuestion < questions.length) {
+            loadQuestion();
+        } else {
+            showResult();
+        }
+
+        quizContainer.classList.remove("fade-out");
+        quizContainer.classList.add("fade-in");
+    }, 300); // Beri jeda sebelum mengganti pertanyaan
 }
+
 
 function showResult() {
     let mbtiType = (scores.E >= scores.I ? "E" : "I") +
