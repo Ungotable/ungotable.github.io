@@ -307,8 +307,8 @@ video {
     }
 
     .test-button {
-        font-size: 12px;
-        padding: 8px 18px;
+        font-size: 16px;
+        padding: 12px 22px;
         white-space: nowrap;
     }
 
@@ -374,8 +374,8 @@ video {
     }
 
     .test-button {
-        font-size: 8px;
-        padding: 4px 10px;
+        font-size: 12px;
+        padding: 8px 14px;
         white-space: nowrap;
     }
 
