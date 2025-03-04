@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    showPopup(); // Munculkan popup langsung setelah halaman dimuat
+    showPopup(); 
 });
 
 function showPopup() {

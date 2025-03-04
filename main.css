@@ -154,6 +154,7 @@ video {
     box-sizing: border-box;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     position: relative;
     min-height: 320px;
@@ -398,19 +399,25 @@ video {
         white-space: nowrap;
     }
 
+    .explanation-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .explanation-image {
+        width: 80%;
+        max-width: 300px;
+    }
+
     .explanation-text {
         font-size: 16px;
+        width: 90%;
     }
 
     .explanation-text h2 {
         font-size: 18px;
     }
-
-    .explanation-content {
-        flex-direction: column-reverse;
-        text-align: center;
-    }
-
     video.playing {
         transform: scale(1.05);
         transition: transform 0.3s ease-in-out;
