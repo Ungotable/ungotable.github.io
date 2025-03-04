@@ -281,6 +281,10 @@ body {
         flex-direction: column;
         padding: 10px 20px;
     }
+    .page-title {
+        margin-top: 110px;
+        width: 100vw;
+    }
     .nav {
         gap: 10px;
     }
