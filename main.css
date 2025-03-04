@@ -397,7 +397,14 @@ video {
         width: 35%;
         max-height: 220px;
     }
-
+    video.playing {
+        transform: scale(1.05); 
+        transition: transform 0.3s ease-in-out;
+        border: 3px solid rgba(255, 255, 255, 0.8); 
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+        border-radius: 10px; 
+    }
+    
     .footer {
         font-size: 10px;
         padding: 15px;

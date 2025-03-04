@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     } else {
-
         let isScrolling;
 
         frame.addEventListener('scroll', () => {
@@ -82,9 +81,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (currentPlayingVideo && currentPlayingVideo !== closestVideo) {
                         currentPlayingVideo.pause();
                         currentPlayingVideo.currentTime = 0;
+                        currentPlayingVideo.classList.remove('playing');
                     }
-
+                    
                     closestVideo.play();
+                    closestVideo.classList.add('playing'); 
                     currentPlayingVideo = closestVideo;
                 }
             }, 100);
