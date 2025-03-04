@@ -1,10 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.explanation-container').forEach(container => {
+        const explanationText = container.querySelector('.explanation-text');
+
+        explanationText.querySelectorAll('h2, p').forEach((paragraph, index) => {
+            paragraph.style.transitionDelay = `${1 + index * 0.3}s`;
+        });
+
+        const checkIfInView = () => {
+            const rect = container.getBoundingClientRect();
+            const buffer = 200;
+            const isVisible = rect.top < window.innerHeight - buffer && rect.bottom > buffer;
+
+            if (isVisible) {
+                container.classList.add('in-view');
+                explanationText.querySelectorAll('h2, p').forEach((paragraph, index) => {
+                    setTimeout(() => paragraph.classList.add('in-view'), (1 + index * 300));
+                });
+            } else {
+                container.classList.remove('in-view');
+                explanationText.querySelectorAll('h2, p').forEach(paragraph => {
+                    paragraph.classList.remove('in-view');
+                });
+            }
+        };
+
+        window.addEventListener('scroll', checkIfInView);
+        checkIfInView();
+    });
     let currentPlayingVideo = null;
 
-    const videos = document.querySelectorAll('video');
-    const frame = document.querySelector('.frame');
-
-    videos.forEach(video => {
+    document.querySelectorAll('video').forEach(video => {
         video.muted = false;
         video.loop = true;
         video.setAttribute('playsinline', '');
@@ -12,44 +37,28 @@ document.addEventListener('DOMContentLoaded', () => {
         video.setAttribute('preload', 'metadata');
         video.pause();
         video.currentTime = 0;
-    });
 
-    if (!window.matchMedia("(hover: hover)").matches) {
-        let isScrolling;
-        
-        frame.addEventListener('scroll', () => {
-            clearTimeout(isScrolling);
-            isScrolling = setTimeout(() => {
-                let closestVideo = null;
-                let minDistance = Infinity;
-
-                videos.forEach(video => {
-                    const rect = video.getBoundingClientRect();
-                    const distance = Math.abs(rect.left + rect.width / 2 - window.innerWidth / 2);
-                    
-                    if (distance < minDistance) {
-                        minDistance = distance;
-                        closestVideo = video;
-                    }
-                });
-
-                if (closestVideo) {
-                    frame.scrollTo({
-                        left: closestVideo.parentElement.offsetLeft - frame.offsetLeft,
-                        behavior: "smooth"
-                    });
-
-                    if (currentPlayingVideo && currentPlayingVideo !== closestVideo) {
-                        currentPlayingVideo.pause();
-                        currentPlayingVideo.currentTime = 0;
-                    }
-
-                    closestVideo.play();
-                    currentPlayingVideo = closestVideo;
+        if (window.matchMedia("(hover: hover)").matches) {
+            video.addEventListener('mouseenter', () => video.play());
+            video.addEventListener('mouseleave', () => video.pause());
+        } else {
+            video.addEventListener('click', () => {
+                if (currentPlayingVideo && currentPlayingVideo !== video) {
+                    currentPlayingVideo.pause();
+                    currentPlayingVideo.currentTime = 0;
                 }
-            }, 100);
-        });
-    }
+
+                if (video.paused) {
+                    video.play();
+                    currentPlayingVideo = video;
+                } else {
+                    video.pause();
+                    video.currentTime = 0;
+                    currentPlayingVideo = null;
+                }
+            });
+        }
+    });
 });
 
 window.addEventListener("pageshow", () => {
@@ -100,12 +109,3 @@ window.onload = function () {
         sessionStorage.removeItem("scrollTarget");
     }
 };
-
-document.addEventListener("DOMContentLoaded", function () {
-    const menuButton = document.querySelector(".hamburger");
-    const navMenu = document.querySelector(".nav");
-
-    menuButton.addEventListener("click", function () {
-        navMenu.classList.toggle("active");
-    });
-});
