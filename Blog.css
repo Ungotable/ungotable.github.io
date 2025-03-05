@@ -257,6 +257,29 @@ body {
     border-radius: 5px;
 }
 
+.video-container {
+    text-align: center;
+    margin: 20px auto;
+}
+video {
+    width: 80%;
+    max-width: 720px;
+    border-radius: 10px;
+}
+#playPauseButton {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #6a5acd;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#playPauseButton:hover {
+    background-color: #5548b0;
+}
+
 @keyframes breathing {
     0% { transform: scale(1); opacity: 1; }
     50% { transform: scale(1.1); opacity: 0.8; }

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    showPopup(); 
+    showPopup();
 });
 
 function showPopup() {
@@ -13,7 +13,7 @@ function showPopup() {
         </div>
     `;
     document.body.appendChild(popup);
-    
+
     document.getElementById("close-popup").addEventListener("click", function () {
         popup.style.display = "none";
     });
