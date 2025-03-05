@@ -139,7 +139,7 @@ function showResult() {
 }
 
 function scrollToHandling() {
-    let targetSection = totalScore / questions.length > 0.75 ? "scroll-2" : "scroll-1";
+    let targetSection = totalScore / questions.length > 0.75 ? "scroll-1" : "scroll-1";
 
     sessionStorage.setItem("fromQuiz", "true");
     sessionStorage.setItem("scrollTarget", targetSection);
